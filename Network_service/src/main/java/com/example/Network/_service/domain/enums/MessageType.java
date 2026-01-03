@@ -1,0 +1,15 @@
+package com.example.Network._service.domain.enums;
+
+public enum MessageType {
+    HEARTBEAT,
+    NODE_REGISTRATION,
+    NODE_DEREGISTRATION,
+    TRANSACTION_BROADCAST,
+    BLOCK_BROADCAST,
+    CONSENSUS_REQUEST,
+    CONSENSUS_RESPONSE,
+    DATA_SYNC,
+    SERVICE_REQUEST,
+    SERVICE_RESPONSE,
+    ERROR_NOTIFICATION
+}
