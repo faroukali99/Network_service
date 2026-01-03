@@ -1,0 +1,368 @@
+{
+  "info": {
+    "name": "LidCoin Network Service API Tests",
+    "description": "Collection complète de tests pour le Network Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Checks",
+      "item": [
+        {
+          "name": "Check Network Service Health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/network/health",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8083",
+              "path": ["api", "network", "health"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Network Statistics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/network/stats",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8083",
+              "path": ["api", "network", "stats"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Node Management",
+      "item": [
+        {
+          "name": "Register User Service Node",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nodeName\": \"User Service Node 1\",\n  \"nodeType\": \"USER_SERVICE\",\n  \"ipAddress\": \"localhost\",\n  \"port\": 8081,\n  \"version\": \"1.0.0\",\n  \"region\": \"local\",\n  \"isValidator\": false\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/network/register",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8083",
+              "path": ["api", "network", "register"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register Wallet Service Node",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nodeName\": \"Wallet Service Node 1\",\n  \"nodeType\": \"WALLET_SERVICE\",\n  \"ipAddress\": \"localhost\",\n  \"port\": 8084,\n  \"version\": \"1.0.0\",\n  \"region\": \"local\",\n  \"isValidator\": false\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/network/register",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8083",
+              "path": ["api", "network", "register"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register Blockchain Service Node",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nodeName\": \"Blockchain Service Node 1\",\n  \"nodeType\": \"BLOCKCHAIN_SERVICE\",\n  \"ipAddress\": \"localhost\",\n  \"port\": 8082,\n  \"version\": \"1.0.0\",\n  \"region\": \"local\",\n  \"isValidator\": true\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/network/register",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8083",
+              "path": ["api", "network", "register"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register Validator Node",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nodeName\": \"Validator Node 1\",\n  \"nodeType\": \"VALIDATOR_NODE\",\n  \"ipAddress\": \"192.168.1.100\",\n  \"port\": 9090,\n  \"version\": \"1.0.0\",\n  \"region\": \"us-east\",\n  \"publicKey\": \"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA...\",\n  \"isValidator\": true\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/network/register",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8083",
+              "path": ["api", "network", "register"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Send Heartbeat",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/network/heartbeat/{{nodeId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8083",
+              "path": ["api", "network", "heartbeat", "{{nodeId}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Active Nodes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/network/nodes/active",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8083",
+              "path": ["api", "network", "nodes", "active"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Nodes by Type - USER_SERVICE",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/network/nodes/type/USER_SERVICE",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8083",
+              "path": ["api", "network", "nodes", "type", "USER_SERVICE"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Nodes by Type - WALLET_SERVICE",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/network/nodes/type/WALLET_SERVICE",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8083",
+              "path": ["api", "network", "nodes", "type", "WALLET_SERVICE"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Active Validators",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/network/nodes/validators",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8083",
+              "path": ["api", "network", "nodes", "validators"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Deregister Node",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/network/deregister/{{nodeId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8083",
+              "path": ["api", "network", "deregister", "{{nodeId}}"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Messaging",
+      "item": [
+        {
+          "name": "Send Message to Specific Node",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"messageId\": \"msg-001\",\n  \"messageType\": \"SERVICE_REQUEST\",\n  \"sourceNodeId\": \"source-node-123\",\n  \"targetNodeId\": \"{{targetNodeId}}\",\n  \"payload\": \"{\\\"action\\\":\\\"getUserBalance\\\",\\\"userId\\\":123}\",\n  \"priority\": \"NORMAL\",\n  \"isBroadcast\": false\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/network/message/send",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8083",
+              "path": ["api", "network", "message", "send"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Send High Priority Message",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"messageType\": \"CONSENSUS_REQUEST\",\n  \"sourceNodeId\": \"blockchain-node-1\",\n  \"targetNodeId\": \"{{targetNodeId}}\",\n  \"payload\": \"{\\\"blockHeight\\\":12345,\\\"blockHash\\\":\\\"0x123abc\\\"}\",\n  \"priority\": \"CRITICAL\",\n  \"isBroadcast\": false\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/network/message/send",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8083",
+              "path": ["api", "network", "message", "send"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Send Transaction Broadcast",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"messageType\": \"TRANSACTION_BROADCAST\",\n  \"sourceNodeId\": \"user-service-1\",\n  \"targetNodeId\": \"{{targetNodeId}}\",\n  \"payload\": \"{\\\"txId\\\":\\\"tx-789\\\",\\\"from\\\":\\\"wallet1\\\",\\\"to\\\":\\\"wallet2\\\",\\\"amount\\\":100}\",\n  \"priority\": \"HIGH\",\n  \"isBroadcast\": true\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/network/message/send",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8083",
+              "path": ["api", "network", "message", "send"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Receive Message (Endpoint Test)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"messageId\": \"msg-received-001\",\n  \"messageType\": \"SERVICE_RESPONSE\",\n  \"sourceNodeId\": \"wallet-service-1\",\n  \"targetNodeId\": \"network-service\",\n  \"payload\": \"{\\\"status\\\":\\\"success\\\",\\\"balance\\\":1000}\",\n  \"priority\": \"NORMAL\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/network/message/receive",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8083",
+              "path": ["api", "network", "message", "receive"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Maintenance",
+      "item": [
+        {
+          "name": "Perform Health Check on All Nodes",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/network/health-check",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8083",
+              "path": ["api", "network", "health-check"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "nodeId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "targetNodeId",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}
